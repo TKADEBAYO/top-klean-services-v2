@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services - Top-Klean Services</title>
+  <meta name="description" content="Explore professional cleaning services by Top-Klean Services. From Airbnb to medical spaces — we clean it all!">
+  <meta property="og:title" content="Cleaning Services - Top-Klean Services">
+  <meta property="og:description" content="Daily, deep, and specialist cleaning solutions. Request a free quote today.">
+  <meta property="og:image" content="images/tks-logo.png">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .logo-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .logo-header img {
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .logo-header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    h2 {
+      color: #004080;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .service-card {
+      background: #eaf1fb;
+      border-left: 5px solid #004080;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .service-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card strong {
+      color: #004080;
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #004080;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #0066cc;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      border: none;
+      outline: none;
+      background-color: #004080;
+      color: white;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.3s;
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #0066cc;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      font-size: 22px;
+      padding: 12px 14px;
+      border-radius: 50%;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .floating-whatsapp:hover {
+      background: #1ebe5d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-header">
+      <img src="images/tks-logo.png" alt="TKS Logo">
+      <h1>TKS - Top-Klean Services</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="social-media.html">Social Media</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Our Cleaning Services</h2>
+
+    <div class="service-card">
+      <strong>Residential Cleaning:</strong>
+      <p>Daily, weekly, or monthly home cleaning services tailored to your space and schedule. Perfect for busy families and individuals.</p>
+    </div>
+
+    <div class="service-card">
+      <strong>End of Tenancy Cleaning:</strong>
+      <p>Deep and professional cleaning to ensure you leave the property spotless for your next move or landlord inspection.</p>
+    </div>
+
+    <div class="service-card">
+      <strong>Airbnb Turnaround:</strong>
+      <p>Fast and reliable cleaning between guests. Includes linen changes, tidying, restocking, and light staging for 5-star reviews.</p>
+    </div>
+
+    <div class="service-card">
+      <strong>Medical & Surgery Cleaning:</strong>
+      <p>Disinfecting and hygienic cleaning for surgeries and clinics, strictly following NHS safety and sterilisation protocols.</p>
+    </div>
+
+    <!-- ⭐ Trust Badge -->
+    <div style="text-align: center; margin-top: 30px;">
+      <p style="color: #004080; font-weight: 600;">⭐️⭐️⭐️⭐️⭐️ Rated by 50+ happy customers in London</p>
+      <p style="font-style: italic;">“Top-Klean made our move-out process seamless — highly recommended!”</p>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="contact.html" class="cta-button">Request a Free Quote</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Call us: <a href="tel:07378409601">07378 409601</a></p>
+    <p>Email: <a href="mailto:info@top-kleanservices.com">info@top-kleanservices.com</a></p>
+    <p>&copy; 2025 Top-Klean Services</p>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" title="Back to Top">↑</button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/447378409601" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
