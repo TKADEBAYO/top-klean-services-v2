@@ -4,8 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us - Top-Klean Services</title>
+  
+  <!-- SEO & Social Sharing -->
+  <meta name="description" content="Learn more about Top-Klean Services — your trusted cleaning company in London. We provide professional, reliable, and high-quality cleaning for homes, offices, and more.">
+  <meta property="og:title" content="About Us - Top-Klean Services">
+  <meta property="og:description" content="Top-Klean Services is a trusted cleaning company in London providing reliable home, office, and specialist cleaning services.">
+  <meta property="og:image" content="images/tks-logo.png">
+  <meta property="og:type" content="website">
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -71,22 +80,6 @@
       padding-left: 20px;
     }
 
-    .team-card {
-      background: #eaf1fb;
-      border-left: 4px solid #004080;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 5px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-
-    .team-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     footer {
       background: #222;
       color: white;
@@ -132,6 +125,26 @@
         margin: 10px 0;
       }
     }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      font-size: 22px;
+      padding: 12px 14px;
+      border-radius: 50%;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .floating-whatsapp:hover {
+      background: #1ebe5d;
+    }
   </style>
 </head>
 <body>
@@ -155,12 +168,30 @@
     <h3>Our Mission</h3>
     <p>To deliver exceptional cleaning services with attention to detail, personalised care, and trust at the core of everything we do.</p>
 
-    <h3>Meet Our Team</h3>
-    <div class="team-card">
-      <strong>Founder & Manager:</strong> [Insert Name] – Over 10 years of experience in professional cleaning and customer care.
+    <!-- Trust Badge -->
+    <div style="background: #f0f7ff; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0;">
+      <p style="font-size: 1.1rem; font-weight: 600; color: #004080;">
+        ⭐⭐⭐⭐⭐ Rated 5/5 by 50+ customers in London
+      </p>
+      <p style="font-style: italic; color: #555;">
+        "Top-Klean has transformed our home! Highly professional and always on time."
+      </p>
     </div>
-    <div class="team-card">
-      <strong>Cleaning Leads:</strong> A team of highly-trained, background-checked, and friendly professionals who love making spaces shine.
+
+    <!-- Values -->
+    <h3>Our Values</h3>
+    <ul>
+      <li><strong>Reliability:</strong> We arrive on time and deliver as promised.</li>
+      <li><strong>Quality:</strong> Attention to detail in every clean.</li>
+      <li><strong>Trust:</strong> Fully vetted, insured, and background-checked staff.</li>
+      <li><strong>Eco-Friendly:</strong> Using safe, sustainable cleaning products where possible.</li>
+    </ul>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="contact.html" style="display: inline-block; padding: 12px 25px; background: #004080; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s;">
+        Request Your Free Quote
+      </a>
     </div>
   </main>
 
@@ -172,6 +203,10 @@
 
   <!-- Scroll to Top Button -->
   <button id="scrollToTopBtn" title="Back to Top">↑</button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/447378409601" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
+
   <script src="js/script.js"></script>
 </body>
 </html>
