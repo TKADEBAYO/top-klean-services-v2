@@ -99,4 +99,4 @@ const cardObserver = new IntersectionObserver(entries => {
 
 serviceCards.forEach(card => {
   cardObserver.observe(card);
-});
+}); 
