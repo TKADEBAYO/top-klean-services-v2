@@ -50,26 +50,47 @@ if (window.location.pathname.includes("contact.html")) {
   });
 }
 
-// 4. Fade in animation on scroll
-const fadeElements = document.querySelectorAll("main, footer");
+// 4. Fade in animation on scroll with sequence (works site-wide)
+const fadeSelectors = ["#heroBanner", "main", "footer"];
 
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, {
-  threshold: 0.2
-});
+// Collect elements from the current page that match the selectors
+const fadeElements = fadeSelectors
+  .map(sel => document.querySelector(sel))
+  .filter(el => el); // remove nulls if some pages don’t have all sections
 
+// Apply initial styles
 fadeElements.forEach(el => {
   el.style.opacity = 0;
   el.style.transform = "translateY(20px)";
   el.style.transition = "all 0.6s ease-out";
-  fadeObserver.observe(el);
 });
+
+let currentIndex = 0;
+
+function fadeInSequentially() {
+  if (currentIndex < fadeElements.length) {
+    const el = fadeElements[currentIndex];
+    el.style.opacity = 1;
+    el.style.transform = "translateY(0)";
+    currentIndex++;
+    setTimeout(fadeInSequentially, 400); // delay between fades
+  }
+}
+
+// Trigger sequence when the first element in the list enters view
+if (fadeElements.length > 0) {
+  const sequenceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        fadeInSequentially();
+        sequenceObserver.disconnect(); // run once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sequenceObserver.observe(fadeElements[0]);
+}
+
 
 // 5. Scroll-to-top button
 const scrollBtn = document.getElementById("scrollToTopBtn");
@@ -86,7 +107,7 @@ scrollBtn?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// Animate service cards on scroll
+// 6. Animate service cards on scroll
 const serviceCards = document.querySelectorAll(".service-card");
 
 const cardObserver = new IntersectionObserver(entries => {
@@ -99,4 +120,4 @@ const cardObserver = new IntersectionObserver(entries => {
 
 serviceCards.forEach(card => {
   cardObserver.observe(card);
-}); 
+});

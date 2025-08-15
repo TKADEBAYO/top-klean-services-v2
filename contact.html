@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="images/tksfaviocon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="images/tksfaviocon.png" />
   <title>Contact Us - Top-Klean Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
@@ -38,6 +42,7 @@
     .logo-header h1 {
       margin: 0;
       font-size: 2rem;
+      font-weight: 700;
     }
 
     nav {
@@ -48,7 +53,7 @@
       margin: 0 15px;
       color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
@@ -62,11 +67,18 @@
       margin: auto;
       background: white;
       animation: fadeIn 0.6s ease-in;
+      border-radius: 8px;
     }
 
     h2 {
       color: #004080;
       margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p, label {
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     form {
@@ -79,7 +91,7 @@
 
     form label {
       display: block;
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 5px;
     }
 
@@ -90,13 +102,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-family: inherit;
+      font-size: 0.95rem;
     }
 
     form input[type="submit"] {
       background-color: #004080;
       color: white;
       border: none;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -113,7 +126,7 @@
       padding: 12px 20px;
       border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: background 0.3s;
     }
 
@@ -129,7 +142,7 @@
       padding: 15px;
       border-radius: 6px;
       color: #2d662d;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     footer {
@@ -176,7 +189,6 @@
         display: block;
         margin: 10px 0;
       }
-
       form {
         padding: 15px;
       }
@@ -186,7 +198,7 @@
 <body>
   <header>
     <div class="logo-header">
-      <img src="images/tks-logo.png" alt="TKS Logo">
+      <img src="images/tks-logo.png" alt="TKS Logo" />
       <h1>TKS - Top-Klean Services</h1>
     </div>
     <nav>
@@ -208,18 +220,18 @@
       Message Us on WhatsApp
     </a>
 
-    <!-- ✅ Updated Formspree form -->
+    <!-- Formspree form -->
     <form id="contactForm" action="https://formspree.io/f/mjkopevk" method="POST">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" name="name" required />
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required />
 
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
-      <input type="submit" value="Send Message">
+      <input type="submit" value="Send Message" />
     </form>
 
     <div id="successMessage">
