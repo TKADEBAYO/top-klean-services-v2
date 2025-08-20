@@ -56,34 +56,29 @@ const fadeSelectors = ["#heroBanner", "main", "footer"];
 // Collect elements from the current page that match the selectors
 const fadeElements = fadeSelectors
   .map(sel => document.querySelector(sel))
-  .filter(el => el); // remove nulls if some pages don’t have all sections
+  .filter(el => el);
 
 // Apply initial styles
-fadeElements.forEach(el => {
+fadeElements.forEach((el, index) => {
   el.style.opacity = 0;
-  el.style.transform = "translateY(20px)";
-  el.style.transition = "all 0.6s ease-out";
+  el.style.transform = "translateY(30px) scale(0.98)";
+  el.style.transition = `all 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.3}s`;
 });
 
-let currentIndex = 0;
-
 function fadeInSequentially() {
-  if (currentIndex < fadeElements.length) {
-    const el = fadeElements[currentIndex];
+  fadeElements.forEach(el => {
     el.style.opacity = 1;
-    el.style.transform = "translateY(0)";
-    currentIndex++;
-    setTimeout(fadeInSequentially, 400); // delay between fades
-  }
+    el.style.transform = "translateY(0) scale(1)";
+  });
 }
 
-// Trigger sequence when the first element in the list enters view
+// Trigger once when heroBanner enters view
 if (fadeElements.length > 0) {
   const sequenceObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         fadeInSequentially();
-        sequenceObserver.disconnect(); // run once
+        sequenceObserver.disconnect();
       }
     });
   }, { threshold: 0.2 });

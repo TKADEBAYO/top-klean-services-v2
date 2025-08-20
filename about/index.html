@@ -7,7 +7,7 @@
   <title>About Us - Top-Klean Services</title>
   
   <!-- SEO & Social Sharing -->
-   <meta name="description" content="Learn more about Top-Klean Services — your trusted cleaning company in London. We provide professional, reliable, and high-quality cleaning for homes, offices, and more." />
+  <meta name="description" content="Learn more about Top-Klean Services — your trusted cleaning company in London. We provide professional, reliable, and high-quality cleaning for homes, offices, and more." />
   <meta property="og:title" content="About Us - Top-Klean Services" />
   <meta property="og:description" content="Top-Klean Services is a trusted cleaning company in London providing reliable home, office, and specialist cleaning services." />
   <meta property="og:image" content="../images/tks-logo.png" />
@@ -31,6 +31,7 @@
       color: white;
       padding: 30px 20px;
       text-align: center;
+      animation: fadeIn 1s ease forwards;
     }
 
     .logo-header {
@@ -38,12 +39,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      animation: fadeIn 1s ease-in;
     }
 
     .logo-header img {
       height: 80px;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-header img:hover {
+      transform: scale(1.08);
     }
 
     .logo-header h1 {
@@ -61,11 +66,44 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: color 0.3s, transform 0.3s ease, border-bottom 0.3s;
+      padding-bottom: 4px;
     }
 
     nav a:hover {
       color: #ffd700;
+      transform: scale(1.08);
+    }
+
+    nav a.active {
+      border-bottom: 2px solid #ffd700;
+    }
+
+    /* FadeIn animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Banner */
+    #heroBanner {
+      background: url('../images/cleaningbanner.png') top center/cover no-repeat;
+      height: 300px;
+      width: 100%;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    /* Breadcrumb */
+    nav[aria-label="breadcrumb"] {
+      padding: 10px 20px;
+      background: #f8f8f8;
+      font-size: 0.9rem;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.3s;
     }
 
     main {
@@ -73,7 +111,16 @@
       max-width: 900px;
       margin: auto;
       background: white;
-      animation: fadeIn 0.6s ease-in;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    main img {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.4s;
     }
 
     h2, h3 {
@@ -91,6 +138,9 @@
       color: white;
       text-align: center;
       padding: 20px;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.5s;
     }
 
     footer a {
@@ -120,11 +170,6 @@
       background-color: #0066cc;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @media (max-width: 600px) {
       nav a {
         display: block;
@@ -146,46 +191,54 @@
       z-index: 999;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       text-decoration: none;
+      transition: transform 0.3s ease;
     }
 
     .floating-whatsapp:hover {
       background: #1ebe5d;
+      transform: scale(1.08);
+    }
+
+    /* Pulse effect for CTA buttons */
+    .cta-pulse {
+      position: relative;
+      animation: pulseAnim 2s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 64, 128, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 64, 128, 0.5); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 64, 128, 0); }
     }
   </style>
 </head>
 
 <body>
   <!-- Header -->
-   <header>
+  <header>
     <div class="logo-header">
       <img src="../images/tks-logo.png" alt="TKS Logo" />
       <h1>TKS - Top-Klean Services</h1>
     </div>
-      <nav>
-    <a href="../index.html">Home</a>
-    <a href="../services/">Services</a>
-    <a href="../about/">About</a>
-    <a href="../contact/">Contact</a>
-  </nav>
-
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../services/">Services</a>
+      <a href="../about/" class="active">About</a>
+      <a href="../contact/">Contact</a>
+    </nav>
   </header>
 
-
   <!-- Hero Banner -->
-  <section id="heroBanner" style="background: url('../images/cleaningbanner.png') top center/cover no-repeat; height: 300px; width: 100%; display: block;"></section>
-
-
+  <section id="heroBanner"></section>
 
   <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb" style="padding: 10px 20px; background: #f8f8f8; font-size: 0.9rem;">
+  <nav aria-label="breadcrumb">
     <a href="../" style="color: #004080; text-decoration: none;">Home</a> › 
     <span style="color: #555;">About Us</span>
   </nav>
 
-
-
   <!-- Main Content -->
-  <main>
+  <main id="aboutMain">
     <h2>About Top-Klean</h2>
     <p>Top-Klean Services was founded on the belief that a clean space improves quality of life. We are a passionate team of professional cleaners based in the UK, dedicated to delivering quality, reliability, and peace of mind.</p>
     
@@ -193,17 +246,17 @@
     <p>To deliver exceptional cleaning services with attention to detail, personalised care, and trust at the core of everything we do.</p>
   
     <!-- Why Choose Us -->
-     <section style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin: 40px 0; text-align: center;">
+    <section style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin: 40px 0; text-align: center;">
       <div style="flex: 1; min-width: 200px;">
-        <img src="../images/icon-reliable.png" alt="Reliable" style="height: 100px;">
+        <img src="../images/icon-reliable.png" alt="Reliable" style="height: 100px; transition: transform 0.3s ease;">
         <p><strong>Reliable Service</strong><br>Always on time, every time.</p>
       </div>
       <div style="flex: 1; min-width: 200px;">
-        <img src="../images/icon-eco.png" alt="Eco Friendly" style="height: 100px;">
+        <img src="../images/icon-eco.png" alt="Eco Friendly" style="height: 100px; transition: transform 0.3s ease;">
         <p><strong>Eco-Friendly</strong><br>Safe for your family & pets.</p>
       </div>
       <div style="flex: 1; min-width: 200px;">
-        <img src="../images/icon-quality.png" alt="Quality" style="height: 100px;">
+        <img src="../images/icon-quality.png" alt="Quality" style="height: 100px; transition: transform 0.3s ease;">
         <p><strong>Quality Assured</strong><br>Attention to detail in every clean.</p>
       </div>
     </section>
@@ -236,7 +289,7 @@
     </ul>
 
     <!-- Service Links -->
-      <div style="margin-top: 40px; padding: 20px; background: #eaf1fb; border-radius: 8px;">
+    <div style="margin-top: 40px; padding: 20px; background: #eaf1fb; border-radius: 8px;">
       <h3>Explore Our Services</h3>
       <p>We offer a full range of cleaning services tailored to your needs:</p>
       <ul>
@@ -248,14 +301,12 @@
     </div>
 
     <!-- CTA -->
-        <div style="text-align: center; margin-top: 30px;">
-      <a href="../contact/" style="display: inline-block; padding: 12px 25px; background: #004080; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s;">
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="../contact/" class="cta-pulse" style="display: inline-block; padding: 12px 25px; background: #004080; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s;">
         Request Your Free Quote
       </a>
     </div>
   </main>
-
-
 
   <!-- Footer -->
   <footer>
@@ -291,6 +342,6 @@
   <a href="https://wa.me/447538902983" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">💬</a>
 
   <!-- JS -->
-   <script src="../js/script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
