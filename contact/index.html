@@ -9,8 +9,8 @@
   <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for Social Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="../css/style.css" />
@@ -18,7 +18,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
       color: #333;
     }
 
@@ -33,7 +33,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       animation: fadeIn 1s ease-in;
     }
 
@@ -58,6 +57,7 @@
       text-decoration: none;
       font-weight: 500;
       position: relative;
+      padding-bottom: 4px;
       transition: color 0.3s;
     }
 
@@ -72,8 +72,7 @@
       transition: width 0.3s ease-in-out;
     }
 
-    nav a:hover,
-    nav a.active {
+    nav a:hover {
       color: #ffd700;
     }
 
@@ -82,30 +81,23 @@
       width: 100%;
     }
 
-    /* Hero Section Fix */
+    /* Hero Section (like index/about) */
     .hero-section {
       background: url('../images/cleaning-hero.png') center/cover no-repeat;
       color: white;
-      padding: 150px 20px;
+      padding: 100px 20px;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
     }
 
     .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.65);
-      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 50px 20px;
       border-radius: 10px;
-      max-width: 650px;
-      width: 90%;
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    .hero-overlay h2, .hero-overlay p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1s ease forwards;
+      display: inline-block;
+      max-width: 700px;
+      margin: auto;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .hero-overlay h2 {
@@ -113,36 +105,24 @@
       margin-bottom: 15px;
       font-weight: 600;
       color: #fff;
-      animation-delay: 0.2s;
     }
 
     .hero-overlay p {
       font-size: 1.1rem;
-      margin-bottom: 15px;
-      animation-delay: 0.5s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin: 0;
+      font-weight: 400;
     }
 
     main {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      animation: fadeIn 0.6s ease-in;
-      border-radius: 8px;
-      margin-top: -40px;
-      position: relative;
-      z-index: 2;
-    }
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 40px auto;  /* ✅ fixes overlap, adds spacing */
+  background: white;
+  border-radius: 8px;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
 
     h3 {
       color: #004080;
@@ -259,6 +239,11 @@
       background-color: #0066cc;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       nav a {
         display: block;
@@ -266,10 +251,6 @@
       }
       form {
         padding: 15px;
-      }
-      .hero-overlay {
-        width: 95%;
-        padding: 20px;
       }
     }
   </style>
@@ -296,64 +277,62 @@
     </div>
   </section>
 
+  <!-- Main Content -->
   <main>
-    <h3>Contact Us</h3>
-    <p>Need a quote or want to book a cleaning? Reach out via email, phone, WhatsApp, or the form below.</p>
+  <h3>Contact Us</h3>
+  <p>Need a quote or want to book a cleaning? Reach out via email, phone, WhatsApp, or the form below.</p>
 
+  <p><strong>Email:</strong> 
+    <a href="mailto:topkleanservicesuk@gmail.com">topkleanservicesuk@gmail.com</a> | 
+    <a href="mailto:nawicleaninguk@gmail.com">nawicleaninguk@gmail.com</a>
+  </p>
+
+  <p><strong>Phone:</strong> 
+    <a href="tel:07378409601">07378 409601</a> | 
+    <a href="tel:07538902983">07538 902983</a>
+  </p>
+
+  <a class="whatsapp-button" href="https://wa.me/447538902983" target="_blank">Message Us on WhatsApp</a>
+
+  <form id="contactForm" action="https://formspree.io/f/mjkopevk" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <input type="submit" value="Send Message" />
+  </form>
+
+  <div id="successMessage">
+    ✅ Thank you! Your message has been successfully sent.
+  </div>
+</main>
+
+
+    <!-- Footer -->
+  <footer>
     <p><strong>Email:</strong> 
       <a href="mailto:topkleanservicesuk@gmail.com">topkleanservicesuk@gmail.com</a> | 
       <a href="mailto:nawicleaninguk@gmail.com">nawicleaninguk@gmail.com</a>
     </p>
-
-    <p><strong>Phone:</strong> 
-      <a href="tel:07378409601">07378 409601</a> | 
-      <a href="tel:07538902983">07538 902983</a>
-    </p>
-
-    <a class="whatsapp-button" href="https://wa.me/447538902983" target="_blank">
-      Message Us on WhatsApp
-    </a>
-
-    <form id="contactForm" action="https://formspree.io/f/mjkopevk" method="POST">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <input type="submit" value="Send Message" />
-    </form>
-
-    <div id="successMessage">
-      ✅ Thank you! Your message has been successfully sent.
-    </div>
-  </main>
-
- <footer>
-    <p><strong>Email:</strong> 
-  <a href="mailto:topkleanservicesuk@gmail.com">topkleanservicesuk@gmail.com</a> | 
-  <a href="mailto:nawicleaninguk@gmail.com">nawicleaninguk@gmail.com</a>
-</p>
     <p>
       Call us: 
       <a href="tel:07378409601">07378 409601</a> | 
       <a href="tel:07538902983">07538 902983</a>
     </p>
-    <p>
+    
+    <!-- ✅ Consistent Social Icons like index.html -->
+    <p class="social-icons">
       Follow us: 
-      <a href="https://www.facebook.com/topkleanservices/" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com/topkleanservicesuk/" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@topklean8?_t=ZN-8z3x8AevykA&_r=1" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-tiktok"></i>
-      </a>
+      <a href="https://www.facebook.com/topkleanservicesuk/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/topkleanservicesuk/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@topklean8?_t=ZN-8z3x8AevykA&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
     </p>
+    
     <p>&copy; 2025 Top-Klean Services</p>
   </footer>
 

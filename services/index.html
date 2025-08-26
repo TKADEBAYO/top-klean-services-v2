@@ -13,15 +13,18 @@
   <meta property="og:image" content="../images/tks-logo.png">
   <meta property="og:type" content="website">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
       color: #333;
     }
 
@@ -36,6 +39,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       animation: fadeIn 1s ease-in;
     }
 
@@ -52,6 +56,7 @@
     .logo-header h1 {
       margin: 0;
       font-size: 2rem;
+      font-weight: 700;
     }
 
     nav {
@@ -59,30 +64,77 @@
     }
 
     nav a {
+      position: relative;
       margin: 0 15px;
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s, transform 0.3s ease, border-bottom 0.3s;
-      padding-bottom: 4px;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding-bottom: 5px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: 0;
+      background-color: #ffd700;
+      transition: width 0.3s ease-in-out;
     }
 
     nav a:hover {
       color: #ffd700;
-      transform: scale(1.08);
     }
 
-    /* Yellow underline for active page */
-    nav a.active {
-      border-bottom: 2px solid #ffd700;
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
     }
 
-    main {
+    /* Hero Section */
+    .hero-section {
+      background: url('../images/cleaning-bg.png') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 40px 20px;
+      border-radius: 10px;
+      display: inline-block;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero-overlay h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .hero-overlay p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    /* Main Section */
+    main {
+      padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
       background: white;
-      animation: fadeIn 0.6s ease-in;
+      border-radius: 10px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1s ease-in-out;
     }
 
     h2 {
@@ -123,21 +175,20 @@
       color: #004080;
     }
 
-    /* CTA pulse effect */
     .cta-pulse {
-      background:#004080;
-      color:white;
-      padding:12px 25px;
-      border-radius:5px;
-      text-decoration:none;
-      font-weight:bold;
-      display:inline-block;
+      background: #004080;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
       animation: pulseAnim 2s infinite;
       transition: background 0.3s;
     }
 
     .cta-pulse:hover {
-      background:#0066cc;
+      background: #0066cc;
     }
 
     @keyframes pulseAnim {
@@ -146,6 +197,7 @@
       100% { transform: scale(1); box-shadow: 0 0 0 rgba(0,64,128,0); }
     }
 
+    /* Footer */
     footer {
       background: #222;
       color: white;
@@ -159,6 +211,18 @@
       text-decoration: none;
     }
 
+    footer .social-icons a {
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+      color: #ffd700;
+    }
+
+    footer .social-icons a:hover {
+      color: #ffffff;
+    }
+
+    /* Scroll to Top */
     #scrollToTopBtn {
       display: none;
       position: fixed;
@@ -179,6 +243,7 @@
       background-color: #0066cc;
     }
 
+    /* WhatsApp Button */
     .floating-whatsapp {
       position: fixed;
       bottom: 90px;
@@ -207,6 +272,7 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="logo-header">
       <img src="../images/tks-logo.png" alt="TKS Logo">
@@ -220,8 +286,16 @@
     </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h2>Our Cleaning Services</h2>
+      <p>Professional, reliable and tailored cleaning solutions for homes, offices and events in London.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
   <main>
-    <h2>Our Cleaning Services</h2>
     <p style="text-align:center; max-width:700px; margin:auto; margin-bottom:30px;">
       At Top-Klean Services, we provide high-quality cleaning tailored to your needs. Whether you need a one-time deep clean, ongoing maintenance, or event support, we’re here to help.
     </p>
@@ -262,27 +336,22 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p><strong>Email:</strong> 
-  <a href="mailto:topkleanservicesuk@gmail.com">topkleanservicesuk@gmail.com</a> | 
-  <a href="mailto:nawicleaninguk@gmail.com">nawicleaninguk@gmail.com</a>
-</p>
+      <a href="mailto:topkleanservicesuk@gmail.com">topkleanservicesuk@gmail.com</a> | 
+      <a href="mailto:nawicleaninguk@gmail.com">nawicleaninguk@gmail.com</a>
+    </p>
     <p>
       Call us: 
       <a href="tel:07378409601">07378 409601</a> | 
       <a href="tel:07538902983">07538 902983</a>
     </p>
-    <p>
+    <p class="social-icons">
       Follow us: 
-      <a href="https://www.facebook.com/topkleanservices/" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com/topkleanservicesuk/" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@topklean8?_t=ZN-8z3x8AevykA&_r=1" target="_blank" style="margin: 0 10px; color: #ffd700; font-size: 1.2rem;">
-        <i class="fab fa-tiktok"></i>
-      </a>
+      <a href="https://www.facebook.com/topkleanservicesuk/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/topkleanservicesuk/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@topklean8?_t=ZN-8z3x8AevykA&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
     </p>
     <p>&copy; 2025 Top-Klean Services</p>
   </footer>
